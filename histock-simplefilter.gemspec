@@ -3,7 +3,7 @@ require_relative 'lib/histock/simplefilter/version'
 Gem::Specification.new do |spec|
     spec.name          = 'histock-simplefilter'
     spec.version       = Histock::Simplefilter::VERSION
-    spec.authors       = ['yuya sato']
+    spec.authors       = ['Yuya Sato']
     spec.email         = ['ysato.5654@gmail.com']
 
     spec.summary       = 'HiStock (https://histock.tw/) filter'

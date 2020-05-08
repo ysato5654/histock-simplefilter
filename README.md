@@ -27,8 +27,6 @@ $ gem install histock-simplefilter
 
 ## Usage
 
-# histock-simplefilter
-
 ```rb
 histock = Histock::Simplefilter.new
 histock.dividend_policy(:code => '1234')

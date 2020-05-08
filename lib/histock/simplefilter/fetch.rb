@@ -20,14 +20,23 @@ module Histock
             node = nodes.first
             # => Nokogiri::XML::Element
 
-            array = []
+            parse_table(:query => query, :element => node)
+        end
 
-            node.children.each do |e|
+        def parse_table query:, element:
+            parse_tr(:query => query, :element => element)
+        end
+
+        # column
+        def parse_tr query:, element:
+            array = Array.new
+
+            element.children.each do |e|
                 next unless e.element?
 
                 case e.name
                 when 'tr'
-                    value = parse_th(query: query, element: e)
+                    value = parse_th_td(:query => query, :element => e)
 
                     array.push value unless value.empty?
                 else
@@ -38,18 +47,19 @@ module Histock
             array
         end
 
-        def parse_th query:, element:
-            value = Array.new
+        # row
+        def parse_th_td query:, element:
+            array = Array.new
 
             element.children.each do |e|
                 case e.name
-                when 'th' then value.push e.children.to_s.gsub(/\<br\>/, '')
-                when 'td' then value.push e.children.to_s
-                else puts e.name; raise TableFormatError
+                when 'th' then array.push e.children.to_s.gsub(/\<br\>/, '')
+                when 'td' then array.push e.children.to_s
+                else raise TableFormatError
                 end
             end
 
-            value
+            array
         end
     end
 end

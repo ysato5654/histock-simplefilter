@@ -1,9 +1,11 @@
 require 'nokogiri'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
+require File.expand_path(File.dirname(__FILE__)) + '/fetch/financial_statements'
 
 module Histock
     module Fetch
         include DividendPolicy
+        include FinancialStatements
 
         private
 
@@ -42,6 +44,18 @@ module Histock
                 else
                     raise TableFormatError
                 end
+            end
+
+            case query
+            when :financial_statements
+                header = array.delete_at(0)
+                header.delete_at(-1)
+                header.delete_at(-1)
+
+                header.push array.delete_at(0)
+                header.flatten!
+
+                array.unshift(header)
             end
 
             array

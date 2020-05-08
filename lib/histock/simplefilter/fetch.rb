@@ -53,8 +53,8 @@ module Histock
 
             element.children.each do |e|
                 case e.name
-                when 'th' then array.push e.children.to_s.gsub(/\<br\>/, '')
-                when 'td' then array.push e.children.to_s
+                when 'th' then array.push e.children.text.gsub(/\<br\>/, '')
+                when 'td' then array.push e.children.text
                 else raise TableFormatError
                 end
             end

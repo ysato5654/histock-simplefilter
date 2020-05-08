@@ -1,3 +1,8 @@
+## v0.1.2
+[full changelog](http://github.com/ysato5654/histock-filter/compare/v0.1.1...v0.1.2)
+
+* fix include path
+
 ## v0.1.1
 [full changelog](http://github.com/ysato5654/histock-filter/compare/v0.1.0...v0.1.1)
 

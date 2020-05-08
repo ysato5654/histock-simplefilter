@@ -1,5 +1,5 @@
 require 'nokogiri'
-require 'fetch/dividend_policy'
+require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
 
 module Histock
     module Fetch

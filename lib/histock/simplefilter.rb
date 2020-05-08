@@ -1,6 +1,6 @@
-require 'simplefilter/version'
-require 'simplefilter/connection'
-require 'simplefilter/fetch'
+require File.expand_path(File.dirname(__FILE__)) + '/simplefilter/version'
+require File.expand_path(File.dirname(__FILE__)) + '/simplefilter/connection'
+require File.expand_path(File.dirname(__FILE__)) + '/simplefilter/fetch'
 
 module Histock
     class Simplefilter

@@ -1,0 +1,4 @@
+/coverage/
+/pkg/
+.rspec_status
+Gemfile.lock

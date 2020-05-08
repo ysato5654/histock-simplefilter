@@ -1,3 +1,9 @@
+## v0.2.0
+[full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.1.2...v0.2.0)
+
+* support new request
+    - financial statements
+
 ## v0.1.2
 [full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.1.1...v0.1.2)
 

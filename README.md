@@ -131,3 +131,17 @@ histock.income_rate('2330', 'quarter')
 # yearly data
 histock.income_rate('2330', 'year')
 ```
+
+### Request Lists (Method)
+
+| Category | Request (Ch) | Request (En) | Source URL |
+|--|--|--|--|
+| 基本財報 | 每月營收 | Monthly Revenue | https://histock.tw/stock/financial.aspx?no=CODE&t=1&st=1 |
+| 基本財報 | 損益表 | Income Statement | https://histock.tw/stock/financial.aspx?no=CODE&t=1&st=4 |
+| 股利政策 | 除權除息 |  | https://histock.tw/stock/financial.aspx?no=CODE&t=2 |
+| 獲利能力 | 利潤比率 | Profit Ratio | https://histock.tw/stock/financial.aspx?no=CODE&t=3&st=1 |
+| 獲利能力 | 報酬率(單一季) | Income Rate | https://histock.tw/stock/financial.aspx?no=CODE&t=3&st=2&q=1 |
+| 獲利能力 | 報酬率(近四季) | Income Rate | https://histock.tw/stock/financial.aspx?no=CODE&t=3&st=2&q=2 |
+| 獲利能力 | 報酬率(年度) | Income Rate | https://histock.tw/stock/financial.aspx?no=CODE&t=3&st=2&q=3 |
+
+(note) You can fill real code number in 'CODE' field.

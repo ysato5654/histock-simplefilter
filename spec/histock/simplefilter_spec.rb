@@ -35,6 +35,30 @@ RSpec.describe Histock::Simplefilter do
         end
     end
 
+    describe '#income_statement(code)' do
+        subject do
+            histock.income_statement(code)
+        end
+
+        let :header do
+            ["年度/季別", "營收", "毛利", "營業利益", "稅前淨利", "稅後淨利"]
+        end
+
+        describe 'first index' do
+            it 'is correct' do
+                expect(subject.first).to eq(header)
+            end
+        end
+
+        describe 'other indexes' do
+            it 'are correct' do
+                subject.each do |e|
+                    expect(e.length).to eq(header.length)
+                end
+            end
+        end
+    end
+
     describe '#dividend_policy(code)' do
         subject do
             histock.dividend_policy(code)

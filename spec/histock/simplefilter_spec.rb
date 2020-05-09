@@ -82,4 +82,106 @@ RSpec.describe Histock::Simplefilter do
             end
         end
     end
+
+    describe '#profit_ratio(code)' do
+        subject do
+            histock.profit_ratio(code)
+        end
+
+        let :header do
+            ["年度/季別", "毛利率", "營業利益率", "稅前淨利率", "稅後淨利率"]
+        end
+
+        describe 'first index' do
+            it 'is correct' do
+                expect(subject.first).to eq(header)
+            end
+        end
+
+        describe 'other indexes' do
+            it 'are correct' do
+                subject.each do |e|
+                    expect(e.length).to eq(header.length)
+                end
+            end
+        end
+    end
+
+    describe '#income_rate(code, term)' do
+        subject do
+            histock.income_rate(code, term)
+        end
+
+        describe 'term is month' do
+            let :header do
+                ["年度/季別", "ROE", "ROA"]
+            end
+
+            let :term do
+                'month'
+            end
+
+            describe 'first index' do
+                it 'is correct' do
+                    expect(subject.first).to eq(header)
+                end
+            end
+
+            describe 'other indexes' do
+                it 'are correct' do
+                    subject.each do |e|
+                        expect(e.length).to eq(header.length)
+                    end
+                end
+            end
+        end
+
+        describe 'term is quarter' do
+            let :header do
+                ["年度/季別", "近四季ROE", "近四季ROA"]
+            end
+
+            let :term do
+                'quarter'
+            end
+
+            describe 'first index' do
+                it 'is correct' do
+                    expect(subject.first).to eq(header)
+                end
+            end
+
+            describe 'other indexes' do
+                it 'are correct' do
+                    subject.each do |e|
+                        expect(e.length).to eq(header.length)
+                    end
+                end
+            end
+        end
+
+        describe 'term is year' do
+            let :header do
+                ["年度", "年度ROE", "年度ROA"]
+            end
+
+            let :term do
+                'year'
+            end
+
+            describe 'first index' do
+                it 'is correct' do
+                    expect(subject.first).to eq(header)
+                end
+            end
+
+            describe 'other indexes' do
+                it 'are correct' do
+                    subject.each do |e|
+                        expect(e.length).to eq(header.length)
+                    end
+                end
+            end
+        end
+    end
 end

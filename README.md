@@ -3,7 +3,10 @@
 
 # Histock::Simplefilter
 
-[HiStock嗨投資理財社群](https://histock.tw/) filter by Ruby
+histock-simplefilter is Ruby library to get the finance data of listed stock on the Taiwan stock exchange market from [HiStock嗨投資理財社群](https://histock.tw/).
+The library provides you to basic output data.
+
+If you would like to get more organized data, refer to [histock-filter](https://github.com/ysato5654/histock-filter).
 
 ## Installation
 

@@ -47,7 +47,7 @@ module Histock
             end
 
             case query
-            when :financial_statements
+            when :monthly_revenue
                 header = array.delete_at(0)
                 header.delete_at(-1)
                 header.delete_at(-1)

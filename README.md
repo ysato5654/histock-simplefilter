@@ -1,5 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/histock-simplefilter.svg)](https://badge.fury.io/rb/histock-simplefilter)
 [![Build Status](https://travis-ci.org/ysato5654/histock-simplefilter.svg?branch=master)](https://travis-ci.org/ysato5654/histock-simplefilter)
+[![Coverage Status](https://coveralls.io/repos/github/ysato5654/histock-simplefilter/badge.svg?branch=master)](https://coveralls.io/github/ysato5654/histock-simplefilter?branch=master)
 
 # Histock::Simplefilter
 

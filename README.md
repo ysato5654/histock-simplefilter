@@ -33,8 +33,10 @@ $ gem install histock-simplefilter
 ### Dividend policy
 
 ```rb
+require 'histock/simplefilter'
+
 histock = Histock::Simplefilter.new
-histock.dividend_policy('2330')
+histock.dividend_policy('2330') # code '2330' is TSMC
 # [
 #   ["所屬年度", "發放年度", "除權日", "除息日", "除權息前股價", "股票股利", "現金股利", "EPS", "配息率", "現金殖利率", "扣抵稅率", "增資配股率", "增資認購價"],
 #   ["2019", "2020", "-", "06/18", "297.5", "0", "2.5", "13.32", "0.1877", "0.0084", "0", "0", "0"],
@@ -59,8 +61,10 @@ histock.dividend_policy('2330')
 ### Financial statements
 
 ```rb
+require 'histock/simplefilter'
+
 histock = Histock::Simplefilter.new
-histock.financial_statements('2330')
+histock.financial_statements('2330') # code '2330' is TSMC
 # [
 #   ["年度/月份", "單月營收", "去年同月營收", "單月月增率", "單月年增率", "累計營收", "去年累計營收", "累積年增率"],
 #   ["2020/04", "96,001,568", "74,693,616", "-15.4%", "28.5%", "406,598,784", "293,398,112", "38.6%"],

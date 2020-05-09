@@ -1,11 +1,13 @@
 require 'nokogiri'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/basic_financial_statements'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
+require File.expand_path(File.dirname(__FILE__)) + '/fetch/profitability'
 
 module Histock
     module Fetch
         include BasicFinancialStatements
         include DividendPolicy
+        include Profitability
 
         private
 
@@ -19,6 +21,8 @@ module Histock
                 # => Nokogiri::XML::NodeSet
             when :income_statement
                 nodes = doc.xpath("//div[@class='row-stock']/div[@class='tb-outline']/div/table[@class='tb-stock tbBasic']")
+            when :profit_ratio, :income_rate
+                nodes = doc.xpath("//div[@class='row-stock w1060']/div[@class='tb-outline']/div/table[@class='tb-stock tbBasic']")
             end
 
             raise InformationNotFound if nodes.empty?

@@ -1,11 +1,11 @@
 require 'nokogiri'
-require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/basic_financial_statements'
+require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
 
 module Histock
     module Fetch
-        include DividendPolicy
         include BasicFinancialStatements
+        include DividendPolicy
 
         private
 

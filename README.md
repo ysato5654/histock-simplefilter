@@ -106,3 +106,28 @@ histock.dividend_policy('2330') # code '2330' is TSMC
 #   ["2007", "2008", "07/16", "07/16", "55.8", "0.05", "3.03", "-", "-", "0", "0.0186", "0.02", "0"]
 # ]
 ```
+
+### Profitability (獲利能力)
+
+#### Profit Ratio (利潤比率)
+
+```rb
+require 'histock/simplefilter'
+
+histock = Histock::Simplefilter.new
+histock.profit_ratio('2330') # code '2330' is TSMC
+```
+
+#### Income Rate (報酬率)
+
+```rb
+require 'histock/simplefilter'
+
+histock = Histock::Simplefilter.new
+# monthly data
+histock.income_rate('2330', 'month') # code '2330' is TSMC
+# quarterly data
+histock.income_rate('2330', 'quarter')
+# yearly data
+histock.income_rate('2330', 'year')
+```

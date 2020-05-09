@@ -1,3 +1,10 @@
+## v0.4.0
+[full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.3.0...v0.4.0)
+
+* support new request
+    - profit ratio
+    - income rate
+
 ## v0.3.0
 [full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.2.0...v0.3.0)
 

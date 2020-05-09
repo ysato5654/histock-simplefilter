@@ -1,3 +1,10 @@
+## v0.3.0
+[full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.2.0...v0.3.0)
+
+* change request name
+    - before: financial statements  
+      after: monthly revenue
+
 ## v0.2.0
 [full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.1.2...v0.2.0)
 

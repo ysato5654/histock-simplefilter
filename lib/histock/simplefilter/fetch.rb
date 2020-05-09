@@ -79,26 +79,7 @@ module Histock
 end
 
 class Integer
-    def is_zero?
-        self == 0
-    end
-
     def is_one?
         self == 1
-    end
-end
-
-class String
-    def is_currency?
-        (self =~ /^[+-]?[0-9]*[\,]?[0-9]*[\.]?[0-9]+$/).nil? ? false : true
-    end
-
-    def to_currency
-        unless self.is_currency?
-            STDERR.puts "#{__FILE__}:#{__LINE__}: argument - #{self}"
-            raise ArgumentError
-        end
-
-        self.gsub(/[\,]/, '').to_f
     end
 end

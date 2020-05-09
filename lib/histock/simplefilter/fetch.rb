@@ -13,8 +13,13 @@ module Histock
             doc = Nokogiri::HTML.parse(html, nil, @charset)
             # => Nokogiri::HTML::Document
 
-            nodes = doc.xpath("//div[@class='row-stock']/div[@class='tb-outline']/table[@class='tb-stock text-center tbBasic']")
-            # => Nokogiri::XML::NodeSet
+            case query
+            when :monthly_revenue, :dividend_policy
+                nodes = doc.xpath("//div[@class='row-stock']/div[@class='tb-outline']/table[@class='tb-stock text-center tbBasic']")
+                # => Nokogiri::XML::NodeSet
+            when :income_statement
+                nodes = doc.xpath("//div[@class='row-stock']/div[@class='tb-outline']/div/table[@class='tb-stock tbBasic']")
+            end
 
             raise InformationNotFound if nodes.empty?
             raise XMLNodeSetError unless nodes.length.is_one?
@@ -66,6 +71,8 @@ module Histock
             array = Array.new
 
             element.children.each do |e|
+                next unless e.element?
+
                 case e.name
                 when 'th' then array.push e.children.text.gsub(/\<br\>/, '')
                 when 'td' then array.push e.children.text

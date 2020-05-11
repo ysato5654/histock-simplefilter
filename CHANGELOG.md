@@ -1,3 +1,8 @@
+## v0.4.1
+[full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.4.0...v0.4.1)
+
+* add error handling
+
 ## v0.4.0
 [full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.3.0...v0.4.0)
 

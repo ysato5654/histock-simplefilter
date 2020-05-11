@@ -2,6 +2,8 @@ module Histock
     class Error < StandardError
     end
 
+    class ArgumentError < Error; end
+
     class InformationNotFound < Error; end
 
     class XMLNodeSetError < Error; end

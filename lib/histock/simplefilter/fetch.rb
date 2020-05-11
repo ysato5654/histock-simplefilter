@@ -1,4 +1,5 @@
 require 'nokogiri'
+require File.expand_path(File.dirname(__FILE__)) + '/error'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/basic_financial_statements'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/profitability'

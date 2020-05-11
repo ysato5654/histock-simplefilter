@@ -11,7 +11,7 @@ module Histock
                 when 'month' then params = {:no => code, :t => 3, :st => 2, :q => 1}
                 when 'quarter' then params = {:no => code, :t => 3, :st => 2, :q => 2}
                 when 'year' then params = {:no => code, :t => 3, :st => 2, :q => 3}
-                else
+                else raise ArgumentError
                 end
 
                 parse(:query => __method__, :html => get('/financial.aspx', params))

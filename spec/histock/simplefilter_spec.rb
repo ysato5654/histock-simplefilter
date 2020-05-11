@@ -183,5 +183,15 @@ RSpec.describe Histock::Simplefilter do
                 end
             end
         end
+
+        describe 'raise error' do
+            let :period do
+                'abc'
+            end
+
+            it '' do
+                expect { subject }.to raise_error(Histock::ArgumentError)
+            end
+        end
     end
 end

@@ -107,17 +107,17 @@ RSpec.describe Histock::Simplefilter do
         end
     end
 
-    describe '#income_rate(code, term)' do
+    describe '#income_rate(code, period)' do
         subject do
-            histock.income_rate(code, term)
+            histock.income_rate(code, period)
         end
 
-        describe 'term is month' do
+        describe 'period is month' do
             let :header do
                 ["年度/季別", "ROE", "ROA"]
             end
 
-            let :term do
+            let :period do
                 'month'
             end
 
@@ -136,12 +136,12 @@ RSpec.describe Histock::Simplefilter do
             end
         end
 
-        describe 'term is quarter' do
+        describe 'period is quarter' do
             let :header do
                 ["年度/季別", "近四季ROE", "近四季ROA"]
             end
 
-            let :term do
+            let :period do
                 'quarter'
             end
 
@@ -160,12 +160,12 @@ RSpec.describe Histock::Simplefilter do
             end
         end
 
-        describe 'term is year' do
+        describe 'period is year' do
             let :header do
                 ["年度", "年度ROE", "年度ROA"]
             end
 
-            let :term do
+            let :period do
                 'year'
             end
 

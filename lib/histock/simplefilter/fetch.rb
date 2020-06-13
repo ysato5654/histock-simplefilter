@@ -3,12 +3,14 @@ require File.expand_path(File.dirname(__FILE__)) + '/error'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/basic_financial_statements'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/profitability'
+require File.expand_path(File.dirname(__FILE__)) + '/fetch/corporate_value'
 
 module Histock
     module Fetch
         include BasicFinancialStatements
         include DividendPolicy
         include Profitability
+        include CorporateValue
 
         private
 
@@ -24,6 +26,10 @@ module Histock
                 nodes = doc.xpath("//div[@class='row-stock']/div[@class='tb-outline']/div/table[@class='tb-stock tbBasic']")
             when :profit_ratio, :income_rate
                 nodes = doc.xpath("//div[@class='row-stock w1060']/div[@class='tb-outline']/div/table[@class='tb-stock tbBasic']")
+            when :price_to_earning_ratio
+                nodes = doc.xpath("//div[@class='row-stock w740']/table[@class='tb-stock tb-outline tbBasic']/tbody")
+            when :price_book_ratio
+                nodes = doc.xpath("//div[@class='row-stock']/table[@class='tb-stock tb-outline tbBasic']/tbody")
             end
 
             raise InformationNotFound if nodes.empty?
@@ -36,7 +42,23 @@ module Histock
         end
 
         def parse_table query:, element:
-            parse_tr(:query => query, :element => element)
+            case query
+            when :price_to_earning_ratio, :price_book_ratio
+                table = Array.new
+
+                _table = parse_tr(:query => query, :element => element)
+
+                table.concat([_table[0][0..1]])
+                _table.slice!(0)
+
+                until _table.flatten.empty? do
+                    table.concat(_table.map { |e| e.slice!(0, 2) })
+                end
+
+                table
+            else
+                parse_tr(:query => query, :element => element)
+            end
         end
 
         # column

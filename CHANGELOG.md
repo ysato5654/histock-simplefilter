@@ -1,3 +1,10 @@
+## v0.5.0
+[full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.4.1...v0.5.0)
+
+* support new request
+    - price to earning ratio
+    - price book ratio
+
 ## v0.4.1
 [full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.4.0...v0.4.1)
 

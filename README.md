@@ -60,10 +60,8 @@ histock.monthly_revenue('2330') # code '2330' is TSMC
 #### Income Statement (損益表)
 
 ```rb
-require 'histock/simplefilter'
-
 histock = Histock::Simplefilter.new
-histock.income_statement('2330') # code '2330' is TSMC
+histock.income_statement('2330')
 # [
 #   ["年度/季別", "營收", "毛利", "營業利益", "稅前淨利", "稅後淨利"],
 #   ["2019Q4", "317,237,065", "159,240,985", "124,243,722", "128,781,973", "116,078,194"],
@@ -82,10 +80,8 @@ histock.income_statement('2330') # code '2330' is TSMC
 #### 除權除息
 
 ```rb
-require 'histock/simplefilter'
-
 histock = Histock::Simplefilter.new
-histock.dividend_policy('2330') # code '2330' is TSMC
+histock.dividend_policy('2330')
 # [
 #   ["所屬年度", "發放年度", "除權日", "除息日", "除權息前股價", "股票股利", "現金股利", "EPS", "配息率", "現金殖利率", "扣抵稅率", "增資配股率", "增資認購價"],
 #   ["2019", "2020", "", "06/18", "297.5", "0", "2.5", "13.32", "0.1877", "0.0084", "0", "0", "0"],
@@ -112,24 +108,48 @@ histock.dividend_policy('2330') # code '2330' is TSMC
 #### Profit Ratio (利潤比率)
 
 ```rb
-require 'histock/simplefilter'
-
 histock = Histock::Simplefilter.new
-histock.profit_ratio('2330') # code '2330' is TSMC
+histock.profit_ratio('2330')
 ```
 
 #### Income Rate (報酬率)
 
 ```rb
-require 'histock/simplefilter'
-
 histock = Histock::Simplefilter.new
 # monthly data
-histock.income_rate('2330', 'month') # code '2330' is TSMC
+histock.income_rate('2330', 'month')
 # quarterly data
 histock.income_rate('2330', 'quarter')
 # yearly data
 histock.income_rate('2330', 'year')
+```
+
+### Corporate Value (企業價值)
+
+#### PER (本益比)
+
+```rb
+histock = Histock::Simplefilter.new
+histock.price_to_earning_ratio('2330')
+# [
+#   ["年度/月份", "本益比"],
+#   ["2020/06", "20.44"],
+#   [],
+#   :
+# ]
+```
+
+#### PBR (股價淨值比)
+
+```rb
+histock = Histock::Simplefilter.new
+histock.price_book_ratio('2330')
+# [
+#   ["年度/月份", "股價淨值比"],
+#   ["2020/06", "4.89"],
+#   [],
+#   :
+# ]
 ```
 
 ### Request Lists (Method)
@@ -143,5 +163,7 @@ histock.income_rate('2330', 'year')
 | 獲利能力 | 報酬率(單一季) | Income Rate | https://histock.tw/stock/financial.aspx?no=CODE&t=3&st=2&q=1 |
 | 獲利能力 | 報酬率(近四季) | Income Rate | https://histock.tw/stock/financial.aspx?no=CODE&t=3&st=2&q=2 |
 | 獲利能力 | 報酬率(年度) | Income Rate | https://histock.tw/stock/financial.aspx?no=CODE&t=3&st=2&q=3 |
+| 企業價值 | 本益比 | Price-to-Earning Ratio | https://histock.tw/stock/financial.aspx?no=CODE&t=6&st=1 |
+| 企業價值 | 股價淨值比 | Price-Book Ratio | https://histock.tw/stock/financial.aspx?no=CODE&t=6&st=2 |
 
 (note) You can fill real code number in 'CODE' field.

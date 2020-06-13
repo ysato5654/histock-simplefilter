@@ -194,4 +194,52 @@ RSpec.describe Histock::Simplefilter do
             end
         end
     end
+
+    describe '#price_to_earning_ratio(code)' do
+        subject do
+            histock.price_to_earning_ratio(code)
+        end
+
+        let :header do
+            ["年度/月份", "本益比"]
+        end
+
+        describe 'first index' do
+            it 'is correct' do
+                expect(subject.first).to eq(header)
+            end
+        end
+
+        describe 'other indexes' do
+            it 'are correct' do
+                subject.each do |e|
+                    expect(e.length).to eq(header.length)
+                end
+            end
+        end
+    end
+
+    describe '#price_book_ratio(code)' do
+        subject do
+            histock.price_book_ratio(code)
+        end
+
+        let :header do
+            ["年度/月份", "股價淨值比"]
+        end
+
+        describe 'first index' do
+            it 'is correct' do
+                expect(subject.first).to eq(header)
+            end
+        end
+
+        describe 'other indexes' do
+            it 'are correct' do
+                subject.each do |e|
+                    expect(e.length).to eq(header.length)
+                end
+            end
+        end
+    end
 end

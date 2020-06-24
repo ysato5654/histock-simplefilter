@@ -1,3 +1,9 @@
+## v0.6.0
+[full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.5.0...v0.6.0)
+
+* support new request
+    - company profile
+
 ## v0.5.0
 [full changelog](http://github.com/ysato5654/histock-simplefilter/compare/v0.4.1...v0.5.0)
 

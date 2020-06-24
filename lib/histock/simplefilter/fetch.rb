@@ -4,6 +4,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/fetch/basic_financial_state
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/dividend_policy'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/profitability'
 require File.expand_path(File.dirname(__FILE__)) + '/fetch/corporate_value'
+require File.expand_path(File.dirname(__FILE__)) + '/fetch/company_profile'
 
 module Histock
     module Fetch
@@ -11,6 +12,7 @@ module Histock
         include DividendPolicy
         include Profitability
         include CorporateValue
+        include CompanyProfile
 
         private
 
@@ -30,6 +32,8 @@ module Histock
                 nodes = doc.xpath("//div[@class='row-stock w740']/table[@class='tb-stock tb-outline tbBasic']")
             when :price_book_ratio
                 nodes = doc.xpath("//div[@class='row-stock']/table[@class='tb-stock tb-outline tbBasic']")
+            when :company_profile
+                nodes = doc.xpath("//div[@class='grid-item w788 mt10']/div[@class='grid-body']/table/tr/td/table[@class='tb-stock tbBasic']")
             end
 
             raise InformationNotFound if nodes.empty?
